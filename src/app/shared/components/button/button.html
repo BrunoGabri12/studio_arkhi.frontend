@@ -1,0 +1,8 @@
+<button
+  type="{{ type() }}"
+  [ngClass]="disabled() ? 'opacity-50 cursor-not-allowed' : ''"
+  [class]="getButtonClass()"
+  [disabled]="disabled()"
+>
+  {{ buttonText() }}
+</button>

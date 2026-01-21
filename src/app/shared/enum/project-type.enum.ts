@@ -1,0 +1,5 @@
+export enum ProjectType {
+  COMERCIAL = 'COMERCIAL',
+  INTERIORES = 'INTERIORES',
+  RESIDENCIAL = 'RESIDENCIAL',
+}

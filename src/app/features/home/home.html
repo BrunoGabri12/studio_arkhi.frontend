@@ -1,0 +1,181 @@
+<section class="relative h-screen bg-black">
+  <div class="absolute h-full w-full bg-black z-0">
+    <app-carousel class="w-full h-full"></app-carousel>
+  </div>
+  <div class="container mx-auto relative z-10 h-full flex items-center">
+    <div class="flex flex-col items-center md:items-start gap-8">
+      <img src="/logo-white.svg" alt="Logo Studio Arkhi" class="w-60 md:w-80" />
+      <app-label
+        text="Transformamos espaços em experiências únicas, unindo design
+        contemporâneo, funcionalidade e a essência de quem os vive."
+        [type]="'base'"
+        [extraClass]="'!text-gray-200 text-center md:text-left max-w-2xl'"
+      ></app-label>
+      <div class="flex flex-col items-center sm:flex-row gap-6">
+        <app-button
+          [style]="'secondary'"
+          [buttonText]="'Explorar Projetos'"
+          (click)="goToProjects()"
+        ></app-button>
+        <app-button
+          [style]="'alternative'"
+          [buttonText]="'Solicitar Orçamento'"
+          (click)="goToContact()"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 lg:py-32 bg-white relative overflow-hidden">
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="flex flex-col lg:flex-row justify-center gap-32 items-center">
+      <div class="flex flex-col gap-6 text-center md:text-start lg:w-[56%]">
+        <div class="mb-2">
+          <app-label [text]="'Criamos espaços que inspiram'" [type]="'title'"></app-label>
+        </div>
+        <app-label
+          text="No Studio Arkhi, acreditamos que a arquitetura vai muito além da estética. Cada projeto é uma oportunidade de transformar vidas, criar memórias e despertar emoções."
+          [extraClass]="'leading-relaxed'"
+        />
+        <app-label
+          text="Nossa abordagem única combina design contemporâneo, sustentabilidade e psicologia ambiental, resultando em espaços que não apenas impressionam, mas verdadeiramente acolhem."
+          [extraClass]="'leading-relaxed'"
+        />
+        <div class="mt-4">
+          <app-button
+            [style]="'secondary'"
+            [buttonText]="'Conheça Nossa História'"
+            (click)="goToContact()"
+          ></app-button>
+        </div>
+      </div>
+      <div class="group order-1 lg:order-2">
+        <img
+          src="initial.jpg"
+          class="object-contain rounded-sm max-w-112.5"
+          alt="Studio Arkhi - Arquitetura"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-white">
+  <div class="container mx-auto">
+    <div class="text-center mb-12">
+      <app-label [text]="'Soluções que transformam vidas'" [type]="'title'"></app-label>
+      <app-label
+        [text]="'Cada projeto é único e reflete nossa paixão por criar espaços únicos'"
+        [type]="'base'"
+      ></app-label>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for (project of showCases(); track project) {
+        <app-image-card [showCase]="project"></app-image-card>
+      }
+    </div>
+
+    <div class="text-center mt-16">
+      <app-button
+        [style]="'tertiary'"
+        [buttonText]="'Ver Todos os Projetos'"
+        (click)="goToProjects()"
+      ></app-button>
+    </div>
+  </div>
+</section>
+
+<section class="py-16">
+  <div class="container mx-auto flex flex-col items-center px-6 lg:px-12">
+    <div class="text-center mb-12">
+      <app-label [text]="'Como realizamos cada projeto'" [type]="'title'"></app-label>
+      <app-label
+        [text]="'Nosso processo foi pensado para garantir clareza, acolhimento e resultados únicos em cada etapa. Veja como conduzimos cada projeto com excelência.'"
+        [type]="'base'"
+        [extraClass]="'mb-12'"
+      ></app-label>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 w-full mb-12">
+        @for (step of steps; track step) {
+          <div class="flex flex-col items-center text-center px-4">
+            <div class="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+              <i class="text-primary text-2xl" [ngClass]="step.icon"></i>
+            </div>
+            <app-label
+              [text]="step.title"
+              [type]="'base'"
+              [extraClass]="'text-base text-secondary mb-2'"
+            ></app-label>
+            <app-label [text]="step.description" [type]="'detail'"></app-label>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="text-center">
+      <app-button
+        [style]="'secondary'"
+        [buttonText]="'Quero transformar meu espaço!'"
+        (click)="goToContact()"
+      ></app-button>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 relative overflow-hidden bg-white">
+  <div class="container mx-auto px-6 lg:px-12 relative z-10">
+    <div class="text-center max-w-5xl mx-auto">
+      <app-label
+        [text]="'Pronto para transformar sua vida através da arquitetura?'"
+        [type]="'title'"
+      ></app-label>
+      <app-label
+        [text]="'Entre em contato conosco e descubra como podemos criar o ambiente dos seus sonhos.'"
+        [type]="'base'"
+        [extraClass]="'mb-12'"
+      ></app-label>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <app-button
+          [style]="'primary'"
+          [buttonText]="'Solicitar Orçamento Gratuito'"
+          (click)="goToContact()"
+        ></app-button>
+        <app-button
+          [style]="'secondary'"
+          [buttonText]="'Ver Nossos Projetos'"
+          (click)="goToProjects()"
+        ></app-button>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mt-10 border-t border-white/20 text-secondary">
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <i class="fa-solid fa-phone text-2xl"></i>
+          </div>
+          <app-label [text]="'(11) 99999-9999'" [type]="'detail'"></app-label>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <i class="fa-solid fa-envelope text-2xl"></i>
+          </div>
+          <app-label [text]="'contato@studioarkhi.com'" [type]="'detail'"></app-label>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <i class="fa-solid fa-map-marker-alt text-2xl"></i>
+          </div>
+          <app-label [text]="'Serrana - SP'" [type]="'detail'"></app-label>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

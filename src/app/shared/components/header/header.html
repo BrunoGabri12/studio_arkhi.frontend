@@ -1,0 +1,41 @@
+<header class="bg-white fixed z-50 w-full h-20">
+  <div
+    class="container flex flex-row justify-center md:justify-between items-center mx-auto h-full"
+  >
+    @if (showMenu()) {
+      <button
+        class="cursor-pointer absolute z-30 right-0 pr-4"
+        (click)="menuOpen.set(!menuOpen())"
+        aria-label="Abrir menu"
+        type="button"
+      >
+        <i class="text-secondary fa-solid" [ngClass]="menuOpen() ? 'fa-xmark' : 'fa-bars'"></i>
+      </button>
+    }
+    <a [routerLink]="['/home']" class="">
+      <img src="/logo.svg" alt="Logo arkhi" />
+    </a>
+
+    <nav
+      [ngClass]="[
+        getMenuClass(),
+        showMenu() ? (menuOpen() ? 'translate-x-0' : 'translate-x-full') : '',
+      ]"
+    >
+      <ul [ngClass]="getNavigationMenuClass()">
+        @for (menu of menuLinks; track $index) {
+          <li>
+            <a
+              class="relative transition-all duration-300 hover:text-secondary"
+              [routerLink]="[menu.route]"
+              [routerLinkActive]="['text-secondary']"
+              (click)="closeMenu()"
+            >
+              {{ menu.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
