@@ -38,7 +38,7 @@ export class Header {
 
   protected readonly menuLinks: MenuLinks[] = [
     { label: 'Home', route: '/home' },
-    { label: 'Projetos', route: '/projects/comercial' },
+    { label: 'Projetos', route: '/projects/' },
     { label: 'Contato', route: '/contact' },
   ];
 
@@ -50,7 +50,7 @@ export class Header {
 
   constructor() {
     this.breakpoint
-      .observe([Breakpoints.XSmall])
+      .observe('(max-width: 799px)')
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((result) => {
         this.showMenu.set(result.matches);

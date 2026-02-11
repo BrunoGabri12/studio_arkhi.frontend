@@ -4,9 +4,8 @@ import { Label } from '../../shared/components/label/label';
 import { Button } from '../../shared/components/button/button';
 import AOS from 'aos';
 import { Router } from '@angular/router';
-import { ProjectShowCase } from '../../shared/dtos/project.dto';
 import { Banners } from '../../shared/services/banners/banners';
-import { ImageCard } from '../../shared/components/image-card/image-card';
+import { ImageCard, ProjectShowCase } from '../../shared/components/image-card/image-card';
 import { NgClass } from '@angular/common';
 
 const steps = [
@@ -81,6 +80,6 @@ export class Home implements OnInit {
   }
 
   protected goToProjects() {
-    this.router.navigate(['/projects/comercial']);
+    this.router.navigate(['/projects', { type: 'Residencial' }]);
   }
 }

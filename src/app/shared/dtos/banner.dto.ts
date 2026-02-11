@@ -1,5 +1,5 @@
 export interface Banner {
-  id: string;
+  id: number;
   mobilePath?: string;
   desktopPath: string;
 }

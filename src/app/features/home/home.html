@@ -1,8 +1,8 @@
-<section class="relative h-screen bg-black">
-  <div class="absolute h-full w-full bg-black z-0">
+<section class="relative h-screen">
+  <div class="absolute h-full w-full z-0">
     <app-carousel class="w-full h-full"></app-carousel>
   </div>
-  <div class="container mx-auto relative z-10 h-full flex items-center">
+  <div class="container-responsive relative z-10 h-full flex items-center">
     <div class="flex flex-col items-center md:items-start gap-8">
       <img src="/logo-white.svg" alt="Logo Studio Arkhi" class="w-60 md:w-80" />
       <app-label
@@ -27,8 +27,8 @@
   </div>
 </section>
 
-<section class="py-16 lg:py-32 bg-white relative overflow-hidden">
-  <div class="container mx-auto px-6 lg:px-12">
+<section class="padding-y bg-white relative overflow-hidden">
+  <div class="container-responsive">
     <div class="flex flex-col lg:flex-row justify-center gap-32 items-center">
       <div class="flex flex-col gap-6 text-center md:text-start lg:w-[56%]">
         <div class="mb-2">
@@ -61,8 +61,8 @@
   </div>
 </section>
 
-<section class="py-16 bg-white">
-  <div class="container mx-auto">
+<section class="padding-y bg-white">
+  <div class="container-responsive">
     <div class="text-center mb-12">
       <app-label [text]="'Soluções que transformam vidas'" [type]="'title'"></app-label>
       <app-label
@@ -71,7 +71,7 @@
       ></app-label>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 gap-8">
       @for (project of showCases(); track project) {
         <app-image-card [showCase]="project"></app-image-card>
       }
@@ -87,31 +87,29 @@
   </div>
 </section>
 
-<section class="py-16">
-  <div class="container mx-auto flex flex-col items-center px-6 lg:px-12">
-    <div class="text-center mb-12">
-      <app-label [text]="'Como realizamos cada projeto'" [type]="'title'"></app-label>
-      <app-label
-        [text]="'Nosso processo foi pensado para garantir clareza, acolhimento e resultados únicos em cada etapa. Veja como conduzimos cada projeto com excelência.'"
-        [type]="'base'"
-        [extraClass]="'mb-12'"
-      ></app-label>
+<section class="padding-y container-responsive flex flex-col items-center">
+  <div class="text-center mb-12">
+    <app-label [text]="'Como realizamos cada projeto'" [type]="'title'"></app-label>
+    <app-label
+      [text]="'Nosso processo foi pensado para garantir clareza, acolhimento e resultados únicos em cada etapa. Veja como conduzimos cada projeto com excelência.'"
+      [type]="'base'"
+      [extraClass]="'mb-12'"
+    ></app-label>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 w-full mb-12">
-        @for (step of steps; track step) {
-          <div class="flex flex-col items-center text-center px-4">
-            <div class="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mb-4">
-              <i class="text-primary text-2xl" [ngClass]="step.icon"></i>
-            </div>
-            <app-label
-              [text]="step.title"
-              [type]="'base'"
-              [extraClass]="'text-base text-secondary mb-2'"
-            ></app-label>
-            <app-label [text]="step.description" [type]="'detail'"></app-label>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 w-full mb-12">
+      @for (step of steps; track step) {
+        <div class="flex flex-col items-center text-center px-4">
+          <div class="bg-primary/10 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <i class="text-primary text-2xl" [ngClass]="step.icon"></i>
           </div>
-        }
-      </div>
+          <app-label
+            [text]="step.title"
+            [type]="'base'"
+            [extraClass]="'text-base text-secondary mb-2'"
+          ></app-label>
+          <app-label [text]="step.description" [type]="'detail'"></app-label>
+        </div>
+      }
     </div>
 
     <div class="text-center">
@@ -124,8 +122,8 @@
   </div>
 </section>
 
-<section class="py-20 relative overflow-hidden bg-white">
-  <div class="container mx-auto px-6 lg:px-12 relative z-10">
+<section class="padding-y relative overflow-hidden bg-white">
+  <div class="container-responsive relative z-10">
     <div class="text-center max-w-5xl mx-auto">
       <app-label
         [text]="'Pronto para transformar sua vida através da arquitetura?'"

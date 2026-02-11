@@ -1,1 +1,34 @@
-<p>projects works!</p>
+<section class="container-responsive w-full flex flex-col items-center text-center mt-10 h-full">
+  <app-label [text]="'Nossos Projetos'" [type]="'title'"></app-label>
+  <app-label
+    [text]="'Explore projetos incríveis e encontre aquele que tem a sua essência'"
+    [type]="'base'"
+  ></app-label>
+
+  <div class="flex justify-center gap-2 mt-4 flex-wrap">
+    @for (type of projectTypes; track type) {
+      <button
+        class="px-4 py-2 cursor-pointer rounded-full text-sm font-light transition-colors duration-200"
+        [class]="
+          selectedFilter() === type
+            ? 'bg-secondary text-white'
+            : 'bg-primary/45 text-gray-700 hover:bg-primary/70'
+        "
+        (click)="filterChange(type)"
+      >
+        <span class="text-white">{{ type }}</span>
+      </button>
+    }
+  </div>
+
+  <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+    @for (project of filteredProjects(); track project.id) {
+      <app-image-card [showCase]="project">
+      </app-image-card>
+    } @empty {
+      <div class="col-span-full text-center py-12">
+        <app-label [text]="'Nenhum projeto encontrado'" [type]="'base'"> </app-label>
+      </div>
+    }
+  </div>
+</section>

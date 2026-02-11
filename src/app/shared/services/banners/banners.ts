@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Banner } from '../../dtos/banner.dto';
-import { ProjectShowCase } from '../../dtos/project.dto';
 import { ProjectType } from '../../enum/project-type.enum';
+import { ProjectShowCase } from '../../components/image-card/image-card';
 
 @Injectable({
   providedIn: 'root',
@@ -19,61 +19,56 @@ export class Banners {
 
 const MOCK_BANNERS: Banner[] = [
   {
-    id: '1',
-    mobilePath: 'interiores.jpg',
-    desktopPath: '/interiores-teste.jpg',
+    id: 1,
+    mobilePath: './interiores.jpg',
+    desktopPath: './interiores.jpg',
   },
   {
-    id: '2',
-    mobilePath: 'reforma.jpg',
-    desktopPath: '/reforma-teste.jpg',
+    id: 2,
+    mobilePath: './reforma.jpg',
+    desktopPath: './reforma.jpg',
   },
 ];
 
 const MOCK_PROJECT_SHOWCASES: ProjectShowCase[] = [
   {
-    id: '1',
+    id: 1,
     name: 'Projeto Residencial',
     description:
       'Um projeto completo para transformar sua casa em um lar aconchegante e funcional.',
     imageUrl: '/residencial.jpg',
     type: ProjectType.RESIDENCIAL,
-    year: 2024,
   },
   {
-    id: '1',
+    id: 2,
     name: 'Projeto Residencial',
     description:
       'Um projeto completo para transformar sua casa em um lar aconchegante e funcional.',
     imageUrl: '/residencial.jpg',
     type: ProjectType.RESIDENCIAL,
-    year: 2024,
   },
   {
-    id: '1',
+    id: 3,
     name: 'Projeto Residencial',
     description:
       'Um projeto completo para transformar sua casa em um lar aconchegante e funcional.',
     imageUrl: '/residencial.jpg',
     type: ProjectType.RESIDENCIAL,
-    year: 2024,
   },
   {
-    id: '1',
+    id: 4,
     name: 'Projeto Residencial',
     description:
       'Um projeto completo para transformar sua casa em um lar aconchegante e funcional.',
     imageUrl: '/residencial.jpg',
     type: ProjectType.RESIDENCIAL,
-    year: 2024,
   },
   {
-    id: '1',
+    id: 5,
     name: 'Projeto Residencial',
     description:
       'Um projeto completo para transformar sua casa em um lar aconchegante e funcional.',
     imageUrl: '/residencial.jpg',
     type: ProjectType.RESIDENCIAL,
-    year: 2024,
   },
 ];

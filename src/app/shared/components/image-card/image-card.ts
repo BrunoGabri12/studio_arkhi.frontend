@@ -1,6 +1,10 @@
 import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProjectShowCase } from '../../dtos/project.dto';
+import { ProjectDto } from '../../dtos/project.dto';
+
+export type ProjectShowCase = Omit<ProjectDto, 'images' | 'location' | 'area' | 'year'> & {
+  imageUrl: string;
+};
 
 @Component({
   selector: 'app-image-card',
@@ -11,7 +15,7 @@ import { ProjectShowCase } from '../../dtos/project.dto';
 export class ImageCard {
   private readonly router = inject(Router);
 
-  showCase = input.required<ProjectShowCase>();
+  readonly showCase = input.required<ProjectShowCase>();
 
   protected goToProject() {
     this.router.navigate(['/projects/project/', this.showCase().id]);

@@ -1,0 +1,41 @@
+import { ProjectDto } from '../../dtos/project.dto';
+import { ProjectType } from '../../enum/project-type.enum';
+
+export const projects: ProjectDto[] = [
+  {
+    id: 1,
+    name: 'Residência Jardim Europa',
+    description:
+      'Projeto residencial contemporâneo com integração de ambientes e iluminação natural.',
+    type: ProjectType.RESIDENCIAL,
+    images: [
+      { url: '/residencial.jpg', coverUrl: '/residencial.jpg', description: 'Fachada principal' },
+      { url: '/interiores.jpg', coverUrl: '/interiores.jpg', description: 'Sala de estar' },
+    ],
+    year: 2023,
+    location: 'São Paulo, SP',
+    area: '350m²',
+  },
+  {
+    id: 2,
+    name: 'Loja Minimal',
+    description: 'Espaço comercial com design minimalista e funcional.',
+    type: ProjectType.COMERCIAL,
+    images: [{ url: '/reforma.jpg', coverUrl: '/reforma.jpg', description: 'Área de exposição' }],
+    year: 2022,
+    location: 'Campinas, SP',
+    area: '120m²',
+  },
+  {
+    id: 3,
+    name: 'Apartamento Urban',
+    description: 'Interiores de apartamento com soluções inteligentes para pequenos espaços.',
+    type: ProjectType.INTERIORES,
+    images: [
+      { url: '/interiores.jpg', coverUrl: '/interiores.jpg', description: 'Living integrado' },
+    ],
+    year: 2024,
+    location: 'Ribeirão Preto, SP',
+    area: '80m²',
+  },
+];

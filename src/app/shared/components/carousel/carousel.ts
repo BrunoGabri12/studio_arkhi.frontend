@@ -50,7 +50,7 @@ export class Carousel {
     }, 10000);
   }
 
-  getImagePath(image: any) {
-    return this.isMobile() && image.mobilePath ? image.mobilePath : image.path;
+  getImagePath(image: Banner) {
+    return this.isMobile() && image.mobilePath ? image.mobilePath : image.desktopPath;
   }
 }

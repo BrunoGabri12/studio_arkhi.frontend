@@ -1,7 +1,7 @@
 import { ProjectType } from '../enum/project-type.enum';
 
-export interface Project {
-  id: string;
+export interface ProjectDto {
+  id: number;
   name: string;
   description: string;
   type: ProjectType;
@@ -10,10 +10,6 @@ export interface Project {
   location: string;
   area?: string;
 }
-
-export type ProjectShowCase = Omit<Project, 'images' | 'location' | 'area'> & {
-  imageUrl: string;
-};
 
 export interface ImageProject {
   url: string;

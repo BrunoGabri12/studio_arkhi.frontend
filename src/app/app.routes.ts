@@ -16,7 +16,7 @@ export const routes: Routes = [
     title: 'Studio Arkhi',
   },
   {
-    path: 'projects/:type',
+    path: 'projects',
     component: Projects,
     title: 'Projetos',
   },
