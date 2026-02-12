@@ -1,1 +1,52 @@
-<p>project works!</p>
+@if (project()) {
+  <section class="container-responsive my-10">
+    <div class="top-10 z-40 flex flex-col lg:flex-col items-start lg:justify-between">
+      <div class="flex items-center gap-4 mb-2 mt-8">
+        <h1 class="text-2xl lg:text-3xl font-extralight text-primary mb-2">
+          {{ project()?.name }}
+        </h1>
+        <span class="px-3 py-1 rounded-full bg-primary/50 text-white text-sm">
+          {{ project()?.type }}
+        </span>
+      </div>
+      <div class="flex flex-wrap items-center gap-8 text-sm text-gray-600">
+        <span class="flex items-center">
+          <i class="fa-solid fa-calendar mr-1"></i>
+          {{ project()?.year }}
+        </span>
+        <span class="flex items-center">
+          <i class="fa-solid fa-map-marker-alt mr-1"></i>
+          {{ project()?.location }}
+        </span>
+        @if (project()?.area) {
+          <span class="flex items-center">
+            <i class="fa-solid fa-ruler-combined mr-1"></i>
+            {{ project()?.area }}
+          </span>
+        }
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <div class="mb-8">
+        <app-label [text]="project()?.description ?? ''" [type]="'base'" />
+      </div>
+
+      @if (project()?.images?.length) {
+        <div
+          class="mb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-6 auto-rows-max"
+        >
+          @for (image of project()?.images; track $index) {
+            <p-image
+              [src]="image.url"
+              [alt]="image.description || project()?.name"
+              [preview]="true"
+            ></p-image>
+          }
+        </div>
+      }
+    </div>
+  </section>
+} @else {
+  <p>Carregando Projeto...</p>
+}

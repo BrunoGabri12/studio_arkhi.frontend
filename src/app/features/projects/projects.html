@@ -1,4 +1,6 @@
-<section class="container-responsive w-full flex flex-col items-center text-center mt-10 h-full">
+<section
+  class="my-10 container-responsive w-full flex flex-col items-center text-center mt-10 h-full"
+>
   <app-label [text]="'Nossos Projetos'" [type]="'title'"></app-label>
   <app-label
     [text]="'Explore projetos incríveis e encontre aquele que tem a sua essência'"
@@ -23,8 +25,7 @@
 
   <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
     @for (project of filteredProjects(); track project.id) {
-      <app-image-card [showCase]="project">
-      </app-image-card>
+      <app-image-card [showCase]="project"> </app-image-card>
     } @empty {
       <div class="col-span-full text-center py-12">
         <app-label [text]="'Nenhum projeto encontrado'" [type]="'base'"> </app-label>

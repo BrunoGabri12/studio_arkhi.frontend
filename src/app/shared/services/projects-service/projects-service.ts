@@ -21,4 +21,9 @@ export class ProjectsService {
       return true;
     });
   }
+
+  findById(id: number): ProjectDto | undefined {
+    const project = projects.find((project) => project.id === +id);
+    return project;
+  }
 }

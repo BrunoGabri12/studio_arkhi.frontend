@@ -1,13 +1,10 @@
 <footer class="bg-white gap-4 flex flex-col items-center text-center">
   <div
-    class="container-responsive flex flex-col md:flex-row justify-between items-start md:items-center py-10"
+    class="container-responsive flex flex-col md:flex-row justify-between items-start md:items-center py-10 align-top"
   >
-    <div class="flex flex-col gap-2 items-center">
-      <img class="" src="/logo.svg" alt="Logo Studio Arkhi" />
-    </div>
-
     <div class="flex flex-col gap-2 items-start">
-      <app-label [text]="'Studio Arkhi'"></app-label>
+      <img src="/logo.svg" alt="Logo Studio Arkhi" />
+
       <a href="https://instagram.com/studioarkhi" target="_blank">
         <i class="fa-brands fa-instagram"></i>
         studioarkhi</a
@@ -21,7 +18,7 @@
         studioarkhi@example.com</a
       >
     </div>
-    <div class="flex flex-col gap-2 items-start md:items-end">
+    <div class="flex flex-col gap-2 items-start">
       <app-label [text]="'Conheça nossos projetos'"></app-label>
       <a class="cursor-pointer" (click)="goToProjectsByType(ProjectType.INTERIORES)">
         Projetos Interiores</a

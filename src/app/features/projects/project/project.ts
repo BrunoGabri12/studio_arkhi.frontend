@@ -1,24 +1,37 @@
-import { Component } from '@angular/core';
-import { ProjectType } from '../../../shared/enum/project-type.enum';
-
-export interface SearchParams {
-  type?: ProjectType;
-  term?: string;
-}
+import { Component, OnInit, effect, inject, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProjectDto } from '../../../shared/dtos/project.dto';
+import { ProjectsService } from '../../../shared/services/projects-service/projects-service';
+import { Label } from '../../../shared/components/label/label';
+import { ImageModule } from 'primeng/image';
 
 @Component({
   selector: 'app-project',
-  imports: [],
+  imports: [Label, ImageModule],
   templateUrl: './project.html',
   styleUrl: './project.css',
 })
-export class Project {
-  getProjects(search?: SearchParams) {
+export class Project implements OnInit {
+  private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly projectService = inject(ProjectsService);
+  protected readonly project = signal<ProjectDto | undefined>(undefined);
 
+  private readonly projectId = signal<number | null>(null);
 
-    
-    // Implementation for fetching projects based on search parameters
+  constructor() {
+    effect(() => {
+      const id = this.projectId();
+      if (id !== null) {
+        const foundProject = this.projectService.findById(id);
+        this.project.set(foundProject);
+      }
+    });
   }
 
-  getProject(id: number) {}
+  ngOnInit() {
+    this.activatedRoute.params.subscribe((params) => {
+      const projectId = params['id'];
+      this.projectId.set(projectId);
+    });
+  }
 }
