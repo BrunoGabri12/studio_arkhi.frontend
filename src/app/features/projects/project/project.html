@@ -1,5 +1,5 @@
 @if (project()) {
-  <section class="container-responsive my-10">
+  <section class="container-responsive padding-y">
     <div class="top-10 z-40 flex flex-col lg:flex-col items-start lg:justify-between">
       <div class="flex items-center gap-4 mb-2 mt-8">
         <h1 class="text-2xl lg:text-3xl font-extralight text-primary mb-2">
@@ -34,14 +34,17 @@
 
       @if (project()?.images?.length) {
         <div
-          class="mb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-6 auto-rows-max"
+          class="mb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 auto-rows-max"
         >
           @for (image of project()?.images; track $index) {
-            <p-image
-              [src]="image.url"
-              [alt]="image.description || project()?.name"
-              [preview]="true"
-            ></p-image>
+            <div class="aspect-square bg-black flex items-center justify-center">
+              <p-image
+                [src]="image.url"
+                [alt]="image.description || project()?.name"
+                [preview]="true"
+                class="w-full h-full object-cover"
+              ></p-image>
+            </div>
           }
         </div>
       }

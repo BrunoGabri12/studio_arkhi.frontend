@@ -1,10 +1,10 @@
 <div class="group cursor-pointer">
-  <div class="relative overflow-hidden rounded-sm aspect-video mb-6" (click)="goToProject()">
+  <div class="relative overflow-hidden rounded-sm aspect-square bg-black" (click)="goToProject()">
     <img
       [src]="showCase().imageUrl"
       [alt]="showCase().name"
       loading="lazy"
-      class="w-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-700"
+      class="w-full h-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-700"
     />
     <div
       class="absolute bottom-6 left-6 flex flex-col items-start text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"

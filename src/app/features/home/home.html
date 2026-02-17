@@ -27,9 +27,9 @@
   </div>
 </section>
 
-<section class="padding-y bg-white relative overflow-hidden">
+<section class="padding-y relative overflow-hidden">
   <div class="container-responsive">
-    <div class="flex flex-col lg:flex-row justify-center gap-32 items-center">
+    <div class="flex flex-col lg:flex-row gap-32 lg:gap-0 items-center">
       <div class="flex flex-col gap-6 text-center md:text-start lg:w-[56%]">
         <div class="mb-2">
           <app-label [text]="'Criamos espaços que inspiram'" [type]="'title'"></app-label>
@@ -71,7 +71,7 @@
       ></app-label>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       @for (project of showCases(); track project) {
         <app-image-card [showCase]="project"></app-image-card>
       }
