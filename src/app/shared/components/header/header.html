@@ -5,7 +5,7 @@
     @if (showMenu()) {
       <button
         class="cursor-pointer absolute z-30 right-0 pr-4"
-        (click)="menuOpen.set(!menuOpen())"
+        (click)="toggleMenu()"
         aria-label="Abrir menu"
         type="button"
       >
